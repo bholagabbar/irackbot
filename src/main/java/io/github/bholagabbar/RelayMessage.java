@@ -1,18 +1,25 @@
 package io.github.bholagabbar;
 
-import com.ullink.slack.simpleslackapi.SlackChannel;
-
-import static io.github.bholagabbar.Main.slackChannel;
-
 public class RelayMessage {
 
-    public static void sendGenericMessageFromIRCToSlack(String message) {
-        SlackChannel slackChannelToSend = Main.slackBot.session.findChannelByName(slackChannel);
-        Main.slackBot.session.sendMessage(slackChannelToSend, message);
+    //Slack Methods
+
+    public static void sendMessageFromIRCToSlack(String message) {
+        Main.slackBot.session.sendMessage(BotConstants.SLACK_CHANNEL_OBJECT, message);
     }
 
-    public static void sendGenericMessageFromSlackToIRC (String message) {
-        Main.ircBot.sendMessage(Main.ircChannel, message);
+    public static void sendSlackUserListToIRC() {
+
+    }
+
+    //IRC Methods
+
+    public static void sendMessageFromSlackToIRC(String message) {
+        Main.ircBot.sendMessage(BotConstants.IRC_CHANNEL, message);
+    }
+
+    public static void sendIRCUserListToSlack() {
+
     }
 
 }
