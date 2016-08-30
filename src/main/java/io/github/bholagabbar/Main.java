@@ -10,6 +10,7 @@ public class Main {
         ircBot.setVerbose(true);
         ircBot.connect(BotConstants.IRC_SERVER);
         ircBot.joinChannel(BotConstants.IRC_CHANNEL);
+
     }
 
     private static void setupSlackBot() throws Exception {

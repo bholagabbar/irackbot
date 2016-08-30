@@ -18,27 +18,43 @@ public class SlackBot {
         SlackMessagePostedListener messagePostedListener = new SlackMessagePostedListener() {
             public void onEvent(SlackMessagePosted event, SlackSession session) {
                 if (!event.getSender().getUserName().equals(BotConstants.SLACK_BOT_NAME)) {
-                    System.out.println("FACK " + Main.slackBot.session.findUserById("U25MZS61W").getRealName());
-                    if (!event.getMessageContent().contains("@" + BotConstants.SLACK_BOT_NAME)) {
+                    if (!event.getMessageContent().contains("@" + Main.slackBot.session.findUserByUserName(BotConstants.SLACK_BOT_NAME).getId())) {
                         String messageToSendFromSlackToIRC = "<slack@" + event.getSender().getUserName() + ">: " + event.getMessageContent();
                         RelayMessage.sendMessageFromSlackToIRC(messageToSendFromSlackToIRC);
                     } else {
                         if (event.getMessageContent().contains("irc_users")) {
-                            System.out.println("YUO HEHREHRER");
-                            StringBuilder ircUserList = new StringBuilder();
-                            ircUserList.append("Entities on the linked channel are: ");
-                            for (org.jibble.pircbot.User user: Main.ircBot.getUsers(BotConstants.IRC_CHANNEL)) {
-                                ircUserList.append(user.toString() + ", ");
+                            Main.slackBot.session.sendMessage(BotConstants.SLACK_CHANNEL_OBJECT, getIRCUserMessageToSendOnSlack());
+                        } else if (event.getMessageContent().contains("change_mode") && event.getSender().getUserName().equals(BotConstants.SLACK_MODE_ADMIN)) {
+                            int older_mode = BotConstants.MODE;
+                            if (BotConstants.MODE == 1) {
+                                BotConstants.MODE = 2;
+                            } else {
+                                BotConstants.MODE = 1;
                             }
-                            Main.ircBot.sendMessage(BotConstants.SLACK_CHANNEL, ircUserList.toString());
+                            String modeMessage;
+                            if (older_mode == 1) {
+                                modeMessage = BotConstants.SLACK_MODE_1_TO_2_MESSAGE;
+                            } else {
+                                modeMessage = BotConstants.SLACK_MODE_2_TO_1_MESSAGE;
+                            }
+                            Main.slackBot.session.sendMessage(BotConstants.SLACK_CHANNEL_OBJECT, modeMessage);
+                            Main.slackBot.session.sendMessage(BotConstants.SLACK_CHANNEL_OBJECT, modeMessage);
                         } else {
-                            String lolTp = "I don't read a valid command there. I'm alive and kicking though, if that's what you wanted to know";
-                            Main.ircBot.sendMessage(BotConstants.SLACK_CHANNEL, lolTp);
+                            Main.slackBot.session.sendMessage(BotConstants.SLACK_CHANNEL_OBJECT, BotConstants.SLACK_TP_MSG);
                         }
                     }
                 }
             }
         };
         session.addMessagePostedListener(messagePostedListener);
+    }
+
+    public String getIRCUserMessageToSendOnSlack() {
+        StringBuilder ircUserList = new StringBuilder();
+        ircUserList.append("Entities on the IRC channel '" + BotConstants.IRC_CHANNEL + "' are: ");
+        for (org.jibble.pircbot.User user: Main.ircBot.getUsers(BotConstants.IRC_CHANNEL)) {
+            ircUserList.append(user.toString() + ", ");
+        }
+        return ircUserList.toString();
     }
 }

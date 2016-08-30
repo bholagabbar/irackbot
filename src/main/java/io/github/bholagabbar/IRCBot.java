@@ -15,26 +15,26 @@ public class IRCBot extends PircBot {
         if (!sender.equals(BotConstants.IRC_BOT_NAME)) {
             //No mention. Normal Message
             if (!message.contains("@" + BotConstants.IRC_BOT_NAME)) {
-                System.out.println("1 HERE "+ message);
                 if (BotConstants.MODE == 1 || (BotConstants.MODE == 2 && messageContainsSlackUserToSend(message))) {
                     RelayMessage.sendMessageFromIRCToSlack(message);
                 }
             } else {
-                //Mention found. Reply with users
-                System.out.println("2 HERE "+ message);
                 if (message.contains("slack_users")) {
-                    StringBuilder slackUserListMessage = new StringBuilder();
-                    slackUserListMessage.append("Entities on the linked channel are: ");
-                    for (SlackUser slackUser : Main.slackBot.session.getUsers()) {
-                        slackUserListMessage.append(slackUser.getUserName()+", ");
-                    }
-                    Main.ircBot.sendMessage(BotConstants.IRC_CHANNEL, slackUserListMessage.toString());
+                    Main.ircBot.sendMessage(BotConstants.IRC_CHANNEL, getSlackUserMessageToSendOnIRC());
                 } else {
-                    String lolTp = "I don't read a valid command there. I'm alive and kicking though, if that's what you wanted to know";
-                    Main.ircBot.sendMessage(BotConstants.IRC_CHANNEL, lolTp);
+                    Main.ircBot.sendMessage(BotConstants.IRC_CHANNEL, BotConstants.IRC_TP_MSG);
                 }
             }
         }
+    }
+
+    public String getSlackUserMessageToSendOnIRC() {
+        StringBuilder slackUserListMessage = new StringBuilder();
+        slackUserListMessage.append("Entities on the slack channel " + BotConstants.SLACK_CHANNEL + " are: ");
+        for (SlackUser slackUser : Main.slackBot.session.getUsers()) {
+            slackUserListMessage.append(slackUser.getUserName()+", ");
+        }
+        return slackUserListMessage.toString();
     }
 
     private boolean messageContainsSlackUserToSend(String message) {
