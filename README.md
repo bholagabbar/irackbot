@@ -37,7 +37,7 @@ relayed to IRC and everyone can see what you're discussing and reach out to you 
 ####A few features
 ![image](http://i.imgur.com/4J3T3Fl.png)
 
-##Usage
+##Setup
 
 ####Requirements: You need to have [Java](https://java.com/en/download/) and [Maven](https://maven.apache.org/install.html) installed and configured.
 
@@ -49,6 +49,13 @@ relayed to IRC and everyone can see what you're discussing and reach out to you 
 6. Run `mvn clean install`.
 7. After a successful build, `cd` to `/target` and run `java -jar irackbot-1.0.jar` to get your bot started.
 
+##Usage
 
+###The 2 Modes: What makes this bot different is you can tell it to receive either all messages from IRC (Mode 1)or only those where your channel members are mentioned (Mode 2)
 
+#### For the examples, I'm assuming my bot is named *irack-bot* on both channels. Needless to say, you have the choice to keep whatever name suits you through the config file.
 
+* *Get users on Slack From IRC*: `@irack-bot slack_users`
+* *Get users on IRC From Slack*: `@irack-bot irc_users`
+* *Change mode on Slack*: `@irack-bot change_mode`
+* *Ping users from IRC to Slack or vice versa*: `@slack/ircusername[Space *important*], message`
