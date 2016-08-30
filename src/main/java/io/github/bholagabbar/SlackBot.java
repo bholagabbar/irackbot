@@ -38,7 +38,7 @@ public class SlackBot {
                                 modeMessage = BotConstants.SLACK_MODE_2_TO_1_MESSAGE;
                             }
                             Main.slackBot.session.sendMessage(BotConstants.SLACK_CHANNEL_OBJECT, modeMessage);
-                            Main.slackBot.session.sendMessage(BotConstants.SLACK_CHANNEL_OBJECT, modeMessage);
+                            Main.ircBot.sendMessage(BotConstants.IRC_CHANNEL, modeMessage);
                         } else {
                             Main.slackBot.session.sendMessage(BotConstants.SLACK_CHANNEL_OBJECT, BotConstants.SLACK_TP_MSG);
                         }
@@ -52,7 +52,7 @@ public class SlackBot {
     public String getIRCUserMessageToSendOnSlack() {
         StringBuilder ircUserList = new StringBuilder();
         ircUserList.append("Entities on the IRC channel '" + BotConstants.IRC_CHANNEL + "' are: ");
-        for (org.jibble.pircbot.User user: Main.ircBot.getUsers(BotConstants.IRC_CHANNEL)) {
+        for (org.jibble.pircbot.User user : Main.ircBot.getUsers(BotConstants.IRC_CHANNEL)) {
             ircUserList.append(user.toString() + ", ");
         }
         return ircUserList.toString();

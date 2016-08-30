@@ -32,14 +32,14 @@ public class IRCBot extends PircBot {
         StringBuilder slackUserListMessage = new StringBuilder();
         slackUserListMessage.append("Entities on the slack channel " + BotConstants.SLACK_CHANNEL + " are: ");
         for (SlackUser slackUser : Main.slackBot.session.getUsers()) {
-            slackUserListMessage.append(slackUser.getUserName()+", ");
+            slackUserListMessage.append(slackUser.getUserName() + ", ");
         }
         return slackUserListMessage.toString();
     }
 
     private boolean messageContainsSlackUserToSend(String message) {
-        for (SlackUser slackUser: slackBot.session.getUsers()) {
-            if(message.contains("@" + slackUser.getUserName())) {
+        for (SlackUser slackUser : slackBot.session.getUsers()) {
+            if (message.contains("@" + slackUser.getUserName())) {
                 return true;
             }
         }

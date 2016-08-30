@@ -10,7 +10,7 @@ public class Main {
         ircBot.setVerbose(true);
         ircBot.connect(BotConstants.IRC_SERVER);
         ircBot.joinChannel(BotConstants.IRC_CHANNEL);
-
+        ircBot.sendMessage(BotConstants.IRC_CHANNEL, BotConstants.IRC_JOIN_MSG);
     }
 
     private static void setupSlackBot() throws Exception {
@@ -19,6 +19,7 @@ public class Main {
         slackBot.session.joinChannel(BotConstants.SLACK_CHANNEL);
         BotConstants.SLACK_CHANNEL_OBJECT = slackBot.session.findChannelByName(BotConstants.SLACK_CHANNEL);
         slackBot.Listen();
+        slackBot.session.sendMessage(BotConstants.SLACK_CHANNEL_OBJECT, BotConstants.SLACK_JOIN_MSG);
     }
 
     public static void main(String[] args) throws Exception {
