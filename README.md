@@ -29,7 +29,25 @@ something that solves all of these problems.
 where any one of your members on the Slack channel have been mentioned**. Meanwhile, all your communication from Slack is still
 relayed to IRC and everyone can see what you're discussing and reach out to you anytime.
 <br>
-*That's just what I need!*
+*That's just what I need!*<br>
+
+####Some regular chat
+![Some regular chat](http://i.imgur.com/o5e9xXC.png)
+
+####A few features
+![image](http://i.imgur.com/4J3T3Fl.png)
+
+##Usage
+
+####Requirements: You need to have [Java](https://java.com/en/download/) and [Maven](https://maven.apache.org/install.html) installed and configured.
+
+1. Setup a Slack Bot for your team channel through the official slack website [by going here](https://www.google.co.in/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=slack%20bot%20for%20my%20team) and clicking on *creating a new bot user*.
+2. Generate and copy the Authentication Token you get. Keep it safely.
+3. Once you create the bot it should be visible on your Slack Team. Invite it to the channel you are going to use it on.
+4. Clone this repository, go to `/src/main/resources` and open the `config.properties` file. Enter all the configuration details following the template given. Make sure all your details are correct, especially your *Team Name* as this currently cannot be verified programmatically. On entering any other incorrect details, you will have an exception thrown.
+5. Go back to the project root directory and open up your terminal pointing to that directory
+6. Run `mvn clean install`.
+7. After a successful build, `cd` to `/target` and run `java -jar irackbot-1.0.jar` to get your bot started.
 
 
 
