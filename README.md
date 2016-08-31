@@ -1,5 +1,5 @@
 # irackbot
-A bot for manageble, efficient Cross-Platform Open Source Communication by relaying messages across Slack and IRC channels differently.
+A bot for built for Efficient and Manageable Cross-Platform Open Source Communication by relaying messages across Slack and IRC channels differently
 
 ##Another IRC-Slack bot?
 
@@ -31,10 +31,14 @@ relayed to IRC and everyone can see what you're discussing and reach out to you 
 <br>
 *That's just what I need!*<br>
 
+
 ####Some regular chat
+
 ![Some regular chat](http://i.imgur.com/o5e9xXC.png)
 
+
 ####A few features
+
 ![image](http://i.imgur.com/4J3T3Fl.png)
 
 ##Setup
@@ -51,11 +55,24 @@ relayed to IRC and everyone can see what you're discussing and reach out to you 
 
 ##Usage
 
-###The 2 Modes: What makes this bot different is you can tell it to receive either all messages from IRC (Mode 1)or only those where your channel members are mentioned (Mode 2)
+### Modes: What makes this bot different is you can tell it to receive either all messages from IRC *(Mode 1)* or only those where your channel members are mentioned *(Mode 2)*
 
-#### For the examples, I'm assuming my bot is named *irack-bot* on both channels. Needless to say, you have the choice to keep whatever name suits you through the config file.
+##### For the examples, I'm assuming my bot is named *irack-bot* on both channels. Needless to say, you have the choice to keep whatever name suits you through the config file.
 
 * *Get users on Slack From IRC*: `@irack-bot slack_users`
 * *Get users on IRC From Slack*: `@irack-bot irc_users`
 * *Change mode on Slack*: `@irack-bot change_mode`
 * *Ping users from IRC to Slack or vice versa*: `@slack/ircusername[Space *important*], message`
+
+##Credits
+
+This bot was built using the [pircbot](http://www.jibble.org/pircbot.php) library by [Jibble](http://www.jibble.org/) and the [simple-slack-api](https://github.com/Ullink/simple-slack-api) by [Ullink](https://github.com/Ullink). Kudos to them for building these useful tools so effectively with an easy to use API.
+
+
+##Contributions
+
+Pull requests and Issues are welcome. Please do supplement them with enough information so as to get a clear idea about the same. Also, please do Star this repository if you liked irackbot !
+
+##License
+
+This tool is licensed under the [Creative Commons CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/) license.
