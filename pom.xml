@@ -70,14 +70,14 @@
       <artifactId>pircbot</artifactId>
       <version>1.5.0</version>
       <type>jar</type>
-      <scope>provided</scope>
+      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>com.github.Ullink</groupId>
       <artifactId>simple-slack-api</artifactId>
       <version>0.5.1</version>
       <type>jar</type>
-      <scope>provided</scope>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
 </project>
