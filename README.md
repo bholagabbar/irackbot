@@ -1,5 +1,9 @@
 # irackbot
+
 IrackBot acts as a bridge across Slack and IRC channels, allowing message filtering while keeping all communication public in the spirit of FOSS communication.
+
+
+####irackbot is now officially recognised by the Slack API Community! See it listed as the 4th entry on [https://api.slack.com/community#java](https://api.slack.com/community#java)
 
 ##Another IRC-Slack bot?
 
