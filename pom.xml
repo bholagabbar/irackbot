@@ -18,35 +18,23 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>2.3</version>
         <executions>
           <execution>
-            <id>copy</id>
             <phase>package</phase>
             <goals>
-              <goal>copy-dependencies</goal>
+              <goal>shade</goal>
             </goals>
             <configuration>
-              <outputDirectory>
-                ${project.build.directory}/lib
-              </outputDirectory>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>io.github.bholagabbar.Main</mainClass>
+                </transformer>
+              </transformers>
             </configuration>
           </execution>
         </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>2.3.2</version>
-        <configuration>
-          <archive>
-            <manifest>
-              <addClasspath>true</addClasspath>
-              <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>io.github.bholagabbar.Main</mainClass>
-            </manifest>
-          </archive>
-        </configuration>
       </plugin>
       <!-- Docker -->
       <plugin>
