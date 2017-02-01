@@ -1,4 +1,5 @@
 slack_token.txt
+/src/main/resources/config.properties
 
 ### Java template
 *.class
