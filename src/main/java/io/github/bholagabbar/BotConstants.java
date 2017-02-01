@@ -55,7 +55,7 @@ public class BotConstants {
             MODE = Integer.parseInt(prop.getProperty("mode"));
 
             //Messages
-            SLACK_JOIN_MSG = "@channel Hello! I'm" + SLACK_BOT_NAME + ", the bot relaying messages between this Slack Channel and the IRC Channel '" + IRC_CHANNEL + "' Query ' @" + IRC_BOT_NAME + " irc_users' to get a list of users on the IRC Channel and directly ping them by @username on IRC. Star me at http://github.com/bholagabbar/irackbot :)";
+            SLACK_JOIN_MSG = "@channel Hello! I'm " + SLACK_BOT_NAME + ", the bot relaying messages between this Slack Channel and the IRC Channel '" + IRC_CHANNEL + "' Query ' @" + IRC_BOT_NAME + " irc_users' to get a list of users on the IRC Channel and directly ping them by @username on IRC. Star me at http://github.com/bholagabbar/irackbot :)";
             SLACK_TP_MSG = "I don't read a valid command there. I'm alive and kicking though, if that's what you wanted to know. Type ' @" + BotConstants.SLACK_BOT_NAME + " irc_users ' to get a list of users on the linked IRC Channel, " + BotConstants.IRC_CHANNEL;
             SLACK_MODE_1_TO_2_MESSAGE = "Slack Mode has been changed from 1 to 2 by the admin. The Slack users will only receive messages on a mention of their username and otherwise. All communication from Slack to IRC is still active";
             SLACK_MODE_2_TO_1_MESSAGE = "Slack Mode has been changed from 2 to 1 by the admin. The Slack users will receive all messages from this Channel. All communication from Slack to IRC is still active";
