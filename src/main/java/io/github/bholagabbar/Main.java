@@ -25,7 +25,9 @@ public class Main {
         BotConstants.setJoinIRCMessage();
         //Start
         slackBot.Listen();
-        slackBot.session.sendMessage(BotConstants.SLACK_CHANNEL_OBJECT, BotConstants.SLACK_JOIN_MSG);
+        if (BotConstants.SLACK_JOIN_MESSAGE_NOTIFICATION.equals("true")) {
+            slackBot.session.sendMessage(BotConstants.SLACK_CHANNEL_OBJECT, BotConstants.SLACK_JOIN_MSG);
+        }
     }
 
     public static void main(String[] args) throws Exception {

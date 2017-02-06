@@ -23,6 +23,7 @@ public class BotConstants {
     public static String SLACK_TP_MSG;
     public static String SLACK_JOIN_MSG;
     public static String SLACK_TEAM_NAME;
+    public static String SLACK_JOIN_MESSAGE_NOTIFICATION;
 
     public static int MODE;
 
@@ -52,6 +53,7 @@ public class BotConstants {
             SLACK_CHANNEL = prop.getProperty("slackChannel");
             SLACK_BOT_NAME = prop.getProperty("slackBotName");
             SLACK_MODE_ADMIN = prop.getProperty("slackModeAdmin");
+            SLACK_JOIN_MESSAGE_NOTIFICATION = prop.getProperty("slackJoinMessageNotification");
             MODE = Integer.parseInt(prop.getProperty("mode"));
 
             //Messages
