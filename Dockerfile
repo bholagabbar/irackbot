@@ -1,5 +1,21 @@
 FROM frolvlad/alpine-oraclejdk8:slim
-ADD irackbot-1.0.jar app.jar
-RUN sh -c 'touch /app.jar'
-ENV JAVA_OPTS=""
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
+
+# Install maven
+RUN apk add --update maven
+
+WORKDIR /code
+
+# Prepare by downloading dependencies
+ADD pom.xml /code/pom.xml  
+RUN ["mvn", "dependency:resolve"]  
+RUN ["mvn", "verify"]
+
+# Adding source, compile and package
+ADD src /code/src  
+RUN ["mvn", "package"]
+
+# Go to target folder
+WORKDIR /code/target
+
+# Execute app
+CMD java -jar irackbot-1.0.jar

@@ -21,6 +21,8 @@ public class IRCBot extends PircBot {
             } else {
                 if (message.contains("slack_users")) {
                     Main.ircBot.sendMessage(BotConstants.IRC_CHANNEL, getSlackUserMessageToSendOnIRC());
+                } else if (message.contains("ping")) {
+                    Main.ircBot.sendMessage(BotConstants.IRC_CHANNEL, BotConstants.IRC_PING_MSG);
                 } else {
                     Main.ircBot.sendMessage(BotConstants.IRC_CHANNEL, BotConstants.IRC_TP_MSG);
                 }

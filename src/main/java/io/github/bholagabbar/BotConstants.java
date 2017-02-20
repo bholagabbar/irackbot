@@ -13,6 +13,7 @@ public class BotConstants {
     public static String IRC_CHANNEL;
     public static String IRC_TP_MSG;
     public static String IRC_JOIN_MSG;
+    public static String IRC_JOIN_MESSAGE_NOTIFICATION;
 
     public static String SLACK_TOKEN;
     public static String SLACK_CHANNEL;
@@ -26,6 +27,8 @@ public class BotConstants {
     public static String SLACK_JOIN_MESSAGE_NOTIFICATION;
 
     public static int MODE;
+    public static String SLACK_PING_MSG;
+    public static String IRC_PING_MSG;
 
     public static SlackChannel SLACK_CHANNEL_OBJECT;
 
@@ -46,6 +49,7 @@ public class BotConstants {
             IRC_SERVER = prop.getProperty("ircServer");
             IRC_BOT_NAME = prop.getProperty("ircBotName");
             IRC_CHANNEL = prop.getProperty("ircChannel");
+            IRC_JOIN_MESSAGE_NOTIFICATION = prop.getProperty("ircJoinMessageNotification");
             IRC_TP_MSG = "I don't read a valid command there. I'm alive and kicking though, if that's what you wanted to know";
 
             //Slack Connection properties
@@ -61,7 +65,9 @@ public class BotConstants {
             SLACK_TP_MSG = "I don't read a valid command there. I'm alive and kicking though, if that's what you wanted to know. Type ' @" + BotConstants.SLACK_BOT_NAME + " irc_users ' to get a list of users on the linked IRC Channel, " + BotConstants.IRC_CHANNEL;
             SLACK_MODE_1_TO_2_MESSAGE = "Slack Mode has been changed from 1 to 2 by the admin. The Slack users will only receive messages on a mention of their username and otherwise. All communication from Slack to IRC is still active";
             SLACK_MODE_2_TO_1_MESSAGE = "Slack Mode has been changed from 2 to 1 by the admin. The Slack users will receive all messages from this Channel. All communication from Slack to IRC is still active";
-
+            SLACK_PING_MSG = "Aye aye cap'n. Irackbot on Slack is alive and Kickin!";
+            IRC_PING_MSG = "Aye aye cap'n. Irackbot on IRC is alive and Kickin!";
+            
         } catch (Exception e) {
             System.out.println("Exception: " + e);
         } finally {

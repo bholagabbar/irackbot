@@ -61,11 +61,12 @@ relayed to IRC and everyone can see what you're discussing and reach out to you 
 
 ### Modes: What makes this bot different is you can tell it to receive either all messages from IRC *(Mode 1)* or only those where your channel members are mentioned *(Mode 2)*
 
-##### For the examples, I'm assuming my bot is named *irack-bot* on both channels. Needless to say, you have the choice to keep whatever name suits you through the config file.
+##### For the examples, I'm assuming my bot is named *irackbot* itself on both channels. Needless to say, you have the choice to keep whatever name suits you through the config file.
 
-* *Get users on Slack From IRC*: `@irack-bot slack_users`
-* *Get users on IRC From Slack*: `@irack-bot irc_users`
-* *Change mode on Slack*: `@irack-bot change_mode`
+* *Get users on Slack From IRC*: `@irackbot slack_users`
+* *Get users on IRC From Slack*: `@irackbot irc_users`
+* *Ping bot on Slack/IRC*: `@irackbot ping`
+* *Change mode on Slack*: `@irackbot change_mode`
 * *Ping users from IRC to Slack or vice versa*: `@slack/ircusername[Space *important*], message`
 
 ##Credits
