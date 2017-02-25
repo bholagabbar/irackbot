@@ -72,6 +72,7 @@ heroku create
 git add -A
 git commit -m"Added Token for Config"
 git push heroku master
+heroku ps:scale worker=1
 ```
 * [**Docker**](https://www.docker.com/what-docker)
 ```
