@@ -45,17 +45,40 @@ relayed to IRC and everyone can see what you're discussing and reach out to you 
 
 ![image](http://i.imgur.com/4J3T3Fl.png)
 
-##Setup
+## Running
 
 ####Requirements: You need to have [Java](https://java.com/en/download/) and [Maven](https://maven.apache.org/install.html) installed and configured.
+
+### Setup
 
 1. Create a Slack Bot for your team channel through the official slack website [by going here](https://www.google.co.in/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=slack%20bot%20for%20my%20team) and clicking on *creating a new bot user*.
 2. Generate and copy the Authentication Token you get. Now, create a file called *local_token.txt*(already included in .gitignore) in the root folder and paste this token there for future reference.
 3. Once you have created the bot, it should be visible on your Slack Team. Invite it to the channel you are going to use it on.
 4. Clone this repository, go to `/src/main/resources` and rename the `config-test.properties` file to `config.properties`. Enter all the configuration details following the template given. Make sure all your details are correct else you'll have an exception thrown later on.
 5. Go back to the project root directory and open up your terminal pointing to that directory
-6. Run `mvn clean install`.
-7. After a successful build, `cd` to `/target` and run `java -jar irackbot-1.0.jar` to get your bot started.
+
+### Build and Run
+* **Standard**
+```
+mvn clean install
+cd target
+java -jar irackbot-1.0.jar
+```
+* [**Heroku**](https://www.heroku.com/)
+```
+heroku login
+mvn clean install && heroku local #Optional, to test locally
+heroku create
+git add -A
+git commit -m"Added Token for Config"
+git push heroku master
+```
+* [**Docker**](https://www.docker.com/what-docker)
+```
+docker build -t irackbot #sudo
+docker run irackbot #sudo
+```
+
 
 ##Usage
 
