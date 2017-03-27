@@ -3,9 +3,9 @@
 IrackBot acts as a bridge across Slack and IRC channels, allowing message filtering while keeping all communication public in the spirit of FOSS communication.
 
 
-####irackbot is now officially recognised by the Slack API Community! See it listed as the 4th entry on [https://api.slack.com/community#java](https://api.slack.com/community#java)
+#### irackbot is now officially recognised by the Slack API Community! See it listed as the 4th entry on [https://api.slack.com/community#java](https://api.slack.com/community#java)
 
-##Another IRC-Slack bot?
+## Another IRC-Slack bot?
 
 A lot of Open Source communities rely on [IRC ](https://en.wikipedia.org/wiki/Internet_Relay_Chat) for their communication. IRC's great
 but let's face it, it doesn't really compare that well to modern team messaging clients like [Slack](https://slack.com/).
@@ -18,7 +18,7 @@ You could be working on a project / involved with this
 community and you end up facing all these problems. So being the wannabe developer that you are, you end up building
 something that solves all of these problems.
 
-##Uhh, so what's different?
+## Uhh, so what's different?
 
 * This bot relays messages from Slack to IRC and vice-versa.<br>
 *Well, that's not new.*
@@ -36,18 +36,18 @@ relayed to IRC and everyone can see what you're discussing and reach out to you 
 *That's just what I need!*<br>
 
 
-####Some regular chat
+#### Some regular chat
 
 ![Some regular chat](http://i.imgur.com/o5e9xXC.png)
 
 
-####A few features
+#### A few features
 
 ![image](http://i.imgur.com/4J3T3Fl.png)
 
 ## Running
 
-####Requirements: You need to have [Java](https://java.com/en/download/) and [Maven](https://maven.apache.org/install.html) installed and configured.
+#### Requirements: You need to have [Java](https://java.com/en/download/) and [Maven](https://maven.apache.org/install.html) installed and configured.
 
 ### Setup
 
@@ -81,7 +81,7 @@ docker run irackbot #sudo
 ```
 
 
-##Usage
+## Usage
 
 ### Modes: What makes this bot different is you can tell it to receive either all messages from IRC *(Mode 1)* or only those where your channel members are mentioned *(Mode 2)*
 
@@ -93,15 +93,15 @@ docker run irackbot #sudo
 * *Change mode on Slack*: `@irackbot change_mode`
 * *Ping users from IRC to Slack or vice versa*: `@slack/ircusername[Space *important*], message`
 
-##Credits
+## Credits
 
 This bot was built using the [pircbot](http://www.jibble.org/pircbot.php) library by [Jibble](http://www.jibble.org/) and the [simple-slack-api](https://github.com/Ullink/simple-slack-api) by [Ullink](https://github.com/Ullink). Kudos to them for building these useful tools so effectively with an easy to use API.
 
 
-##Contributions
+## Contributions
 
 Pull requests and Issues are welcome. Please do supplement them with enough information so as to get a clear idea about the same. Also, please do Star this repository if you liked irackbot !
 
-##License
+## License
 
 [The MIT License](https://rem.mit-license.org/  )
